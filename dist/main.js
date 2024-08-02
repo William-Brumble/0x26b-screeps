@@ -1,6 +1,6 @@
-var roleHarvester = require('role.harvester');
-var sandbox = require('test.sandbox');
-var factory  = require('spawn.create');
+var roleHarvester = require('harvester');
+var sandbox = require('sandbox');
+var factory  = require('create');
 
 
 module.exports.loop = function () {
