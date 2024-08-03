@@ -1,8 +1,9 @@
 export class Sandbox {
-    constructor() {
+    constructor(){
     }
+
     run() {
-        var sources = Game.rooms;
+        var sources = Game.rooms
         console.log(sources);
     }
 }

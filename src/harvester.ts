@@ -1,7 +1,8 @@
 export class Harvester {
     constructor() {
     }
-    run(creep) {
+
+    run(creep: any) {
         if (creep.store.getFreeCapacity() > 0) {
             var sources = creep.room.find(FIND_SOURCES);
             console.log(sources);
