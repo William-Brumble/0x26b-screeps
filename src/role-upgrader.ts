@@ -3,13 +3,13 @@ export class Upgrader {
     // Check if the creep is in upgrading mode and has no energy left
     if (creep.memory.upgrading && creep.store[RESOURCE_ENERGY] == 0) {
       creep.memory.upgrading = false;
-      creep.say("🔄 harvest");
+      creep.say("harvest");
     }
 
     // Check if the creep is in harvesting mode and is full of energy
     if (!creep.memory.upgrading && creep.store.getFreeCapacity() == 0) {
       creep.memory.upgrading = true;
-      creep.say("⚡ upgrade");
+      creep.say("upgrade");
     }
 
     // If the creep is in upgrading mode
@@ -25,12 +25,13 @@ export class Upgrader {
         }
       }
     }
+
     // If the creep is in harvesting mode
     else {
       // Find the closest active energy source
       const source = creep.pos.findClosestByPath(FIND_SOURCES_ACTIVE);
       if (source && creep.harvest(source) == ERR_NOT_IN_RANGE) {
-        creep.moveTo(source, { visualizePathStyle: { stroke: "#ffaa00" } });
+        creep.moveTo(source, { visualizePathStyle: { stroke: "#ffffff" } });
       }
     }
   }

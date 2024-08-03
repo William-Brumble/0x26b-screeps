@@ -3,13 +3,13 @@ export class Builder {
     // Check if the creep is in building mode and has no energy left
     if (creep.memory.building && creep.store[RESOURCE_ENERGY] == 0) {
       creep.memory.building = false;
-      creep.say("🔄 withdraw");
+      creep.say("withdraw");
     }
 
     // Check if the creep is in withdrawing mode and is full of energy
     if (!creep.memory.building && creep.store.getFreeCapacity() == 0) {
       creep.memory.building = true;
-      creep.say("🚧 build");
+      creep.say("build");
     }
 
     // If the creep is in building mode

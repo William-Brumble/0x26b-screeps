@@ -8,19 +8,19 @@ var Harvester = /** @class */ (function () {
         // Check if the creep is in harvesting mode and has no free capacity
         if (creep.memory.harvesting && creep.store.getFreeCapacity() == 0) {
             creep.memory.harvesting = false;
-            creep.say("🚧 deliver");
+            creep.say("deliver");
         }
         // Check if the creep is in delivery mode and has no energy left
         if (!creep.memory.harvesting && creep.store[RESOURCE_ENERGY] == 0) {
             creep.memory.harvesting = true;
-            creep.say("🔄 harvest");
+            creep.say("harvest");
         }
         // If the creep is in harvesting mode
         if (creep.memory.harvesting) {
             // Find the closest active energy source
             var source = creep.pos.findClosestByPath(FIND_SOURCES_ACTIVE);
             if (source && creep.harvest(source) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(source, { visualizePathStyle: { stroke: "#ffaa00" } });
+                creep.moveTo(source, { visualizePathStyle: { stroke: "#ffffff" } });
             }
         }
         // If the creep is in delivery mode
