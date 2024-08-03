@@ -11,7 +11,9 @@ function loop() {
     var availableSpawns = spawns.getAvailableSpawns();
     var harvesterCreeps = creeps.getAllHarvesterCreeps();
     // create
-    factory.create();
+    if (harvesterCreeps.length < 1) {
+        factory.create();
+    }
     // creeps
     for (var i = 0; i < harvesterCreeps.length; i++) {
         var creep = harvesterCreeps[i];
@@ -23,8 +25,7 @@ function loop() {
             if (creep.store.getFreeCapacity() > 0) {
                 creeps.commandCreepToHarvest(creep, source);
             }
-            // need to unload
-            if (creep.store.getFreeCapacity() < 0) {
+            else {
                 // spawns
                 for (var i_2 = 0; i_2 < availableSpawns.length; i_2++) {
                     var spawn = availableSpawns[i_2];
