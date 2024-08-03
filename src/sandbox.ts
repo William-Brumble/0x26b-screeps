@@ -4,6 +4,5 @@ export class Sandbox {
 
     run() {
         var sources = Game.rooms
-        console.log(sources);
     }
 }
