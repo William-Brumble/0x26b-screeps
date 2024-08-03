@@ -6,7 +6,6 @@ var Sandbox = /** @class */ (function () {
     }
     Sandbox.prototype.run = function () {
         var sources = Game.rooms;
-        console.log(sources);
     };
     return Sandbox;
 }());

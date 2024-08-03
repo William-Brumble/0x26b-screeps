@@ -7,10 +7,9 @@ var Factory = /** @class */ (function () {
     Factory.prototype.create = function () {
         var spawns = Game.spawns;
         for (var i in spawns) {
-            console.log(JSON.stringify(Game.spawns[i]));
             var creepId = this.makeid(5);
             var canSpawn = Game.spawns[i].spawnCreep([WORK, CARRY, MOVE], "harvester-".concat(creepId), { dryRun: true });
-            if (canSpawn) {
+            if (canSpawn === OK) {
                 Game.spawns[i].spawnCreep([WORK, CARRY, MOVE], "harvester-".concat(creepId), { memory: { role: 'harvester' } });
             }
         }
