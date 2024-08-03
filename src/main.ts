@@ -1,18 +1,40 @@
 import { Factory } from "./factory";
-import { Harvester } from "./harvester";
-import { Sandbox } from "./sandbox";
+import { Creeps } from "./creeps";
+import { Spawns } from "./spawns";
 
-const sandbox = new Sandbox();
-const harvester = new Harvester();
+const creeps = new Creeps();
+const spawns = new Spawns();
 const factory = new Factory();
 
 export function loop() {
-    sandbox.run();
-    factory.create();
+  const availableSpawns = spawns.getAvailableSpawns();
+  const harvesterCreeps = creeps.getAllHarvesterCreeps();
 
-    for(var name in Game.creeps) {
-        var creep = Game.creeps[name];
-        harvester.run(creep);
+  // create
+  factory.create();
+
+  // creeps
+  for (let i = 0; i < harvesterCreeps.length; i++) {
+    const creep = harvesterCreeps[i];
+    const activeEnergySources = creeps.commandFindAllActiveEnergySources(creep);
+
+    // sources
+    for (let i = 0; i < activeEnergySources.length; i++) {
+      const source = activeEnergySources[i];
+
+      // need to harvest
+      if (creep.store.getFreeCapacity() > 0) {
+        creeps.commandCreepToHarvest(creep, source);
+      }
+
+      // need to unload
+      if (creep.store.getFreeCapacity() < 0) {
+        // spawns
+        for (let i = 0; i < availableSpawns.length; i++) {
+          const spawn = availableSpawns[i];
+          creeps.commandCreepToUnload(creep, spawn);
+        }
+      }
     }
-
+  }
 }
