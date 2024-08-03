@@ -1,24 +1,19 @@
 {
     "compilerOptions": {
-        "module": "esnext",
-        "lib": [
-            "es2018"
-        ],
-        "target": "es2018",
-        "moduleResolution": "Node",
-        "outDir": "for-screeps",
-        "sourceMap": false,
-        "strict": true,
-        "experimentalDecorators": true,
-        "noImplicitReturns": true,
-        "allowSyntheticDefaultImports": true,
-        "allowUnreachableCode": false
+      "target": "es5",
+      "module": "commonjs",
+      "outDir": "./dist",
+      "rootDir": "./src",
+      "strict": true,
+      "esModuleInterop": true,
+      "forceConsistentCasingInFileNames": true
     },
     "include": [
-        "./src/**/*.ts"
+      "./src/**/*.ts"
     ],
     "exclude": [
         "node_modules",
         "dist",
+        "for-screeps"
     ]
-}
+  }
