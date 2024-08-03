@@ -34,9 +34,9 @@ var SpawnerManager = /** @class */ (function () {
     function SpawnerManager() {
     }
     SpawnerManager.prototype.tick = function (room) {
-        this.maintainCreepPopulation("harvester", 5);
         this.maintainCreepPopulation("builder", 3);
         this.maintainCreepPopulation("upgrader", 2);
+        this.maintainCreepPopulation("harvester", 5);
     };
     SpawnerManager.prototype.maintainCreepPopulation = function (role, desiredCount) {
         var total = [];

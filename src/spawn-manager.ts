@@ -37,9 +37,9 @@ export const CREEP_CONFIG: Record<CreepRole, CreepConfig> = {
 
 export class SpawnerManager {
   tick(room: Room) {
-    this.maintainCreepPopulation("harvester", 5);
     this.maintainCreepPopulation("builder", 3);
     this.maintainCreepPopulation("upgrader", 2);
+    this.maintainCreepPopulation("harvester", 5);
   }
 
   private maintainCreepPopulation(role: CreepRole, desiredCount: number) {
