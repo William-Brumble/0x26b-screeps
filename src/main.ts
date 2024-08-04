@@ -4,6 +4,7 @@ import { ResourceManager } from "./resource-manager";
 import { Builder } from "./role-builder";
 import { Harvester } from "./role-harvester";
 import { Upgrader } from "./role-upgrader";
+import { Defender } from "./role-defender";
 import { RoomManager } from "./room-manager";
 import { ShardManager } from "./shard-manager";
 import { SpawnerManager } from "./spawn-manager";
@@ -12,10 +13,12 @@ import { StructureManager } from "./structure-manager";
 const builder = new Builder();
 const harvester = new Harvester();
 const upgrader = new Upgrader();
+const defender = new Defender();
 const creepManager = new CreepManager({
   builder: builder,
   harvester: harvester,
   upgrader: upgrader,
+  defender: defender
 });
 const spawnManager = new SpawnerManager();
 const resourceManager = new ResourceManager();

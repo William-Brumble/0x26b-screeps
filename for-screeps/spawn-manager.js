@@ -29,6 +29,15 @@ exports.CREEP_CONFIG = {
             upgrading: false,
         },
     },
+    defender: {
+        body: [TOUGH, TOUGH, ATTACK, MOVE, MOVE],
+        memory: {
+            role: "defender",
+            harvesting: false,
+            building: false,
+            upgrading: false,
+        },
+    },
 };
 var SpawnerManager = /** @class */ (function () {
     function SpawnerManager() {
@@ -37,6 +46,7 @@ var SpawnerManager = /** @class */ (function () {
         this.maintainCreepPopulation("builder", 3);
         this.maintainCreepPopulation("upgrader", 2);
         this.maintainCreepPopulation("harvester", 5);
+        this.maintainCreepPopulation("defender", 1);
     };
     SpawnerManager.prototype.maintainCreepPopulation = function (role, desiredCount) {
         var total = [];
