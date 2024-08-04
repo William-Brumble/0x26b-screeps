@@ -23,7 +23,7 @@ var Builder = /** @class */ (function () {
                 // Attempt to build at the closest construction site
                 if (creep.build(targets[0]) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(targets[0], {
-                        visualizePathStyle: { stroke: "#ffffff" },
+                        visualizePathStyle: { stroke: "#00ff00" },
                     });
                 }
             }
@@ -35,7 +35,7 @@ var Builder = /** @class */ (function () {
                 if (repairTargets.length) {
                     if (creep.repair(repairTargets[0]) == ERR_NOT_IN_RANGE) {
                         creep.moveTo(repairTargets[0], {
-                            visualizePathStyle: { stroke: "#ffffff" },
+                            visualizePathStyle: { stroke: "#00ff00" },
                         });
                     }
                 }

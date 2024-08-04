@@ -9,6 +9,7 @@ exports.CREEP_CONFIG = {
             harvesting: false,
             building: false,
             upgrading: false,
+            repairing: false,
         },
     },
     builder: {
@@ -18,6 +19,7 @@ exports.CREEP_CONFIG = {
             harvesting: false,
             building: false,
             upgrading: false,
+            repairing: false,
         },
     },
     upgrader: {
@@ -27,6 +29,7 @@ exports.CREEP_CONFIG = {
             harvesting: false,
             building: false,
             upgrading: false,
+            repairing: false,
         },
     },
     defender: {
@@ -36,6 +39,17 @@ exports.CREEP_CONFIG = {
             harvesting: false,
             building: false,
             upgrading: false,
+            repairing: false,
+        },
+    },
+    repairer: {
+        body: [WORK, CARRY, MOVE, MOVE],
+        memory: {
+            role: "repairer",
+            harvesting: false,
+            building: false,
+            upgrading: false,
+            repairing: false,
         },
     },
 };
@@ -47,6 +61,7 @@ var SpawnerManager = /** @class */ (function () {
         this.maintainCreepPopulation("upgrader", 2);
         this.maintainCreepPopulation("harvester", 5);
         this.maintainCreepPopulation("defender", 1);
+        this.maintainCreepPopulation("repairer", 1);
     };
     SpawnerManager.prototype.maintainCreepPopulation = function (role, desiredCount) {
         var total = [];
@@ -71,6 +86,7 @@ var SpawnerManager = /** @class */ (function () {
                     building: false,
                     upgrading: false,
                     harvesting: false,
+                    repairing: false
                 },
             });
         }

@@ -21,7 +21,7 @@ var Upgrader = /** @class */ (function () {
             if (creep.room.controller) {
                 if (creep.upgradeController(creep.room.controller) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(creep.room.controller, {
-                        visualizePathStyle: { stroke: "#ffffff" },
+                        visualizePathStyle: { stroke: "#0000ff" },
                     });
                 }
             }
@@ -31,7 +31,7 @@ var Upgrader = /** @class */ (function () {
             // Find the closest active energy source
             var source = creep.pos.findClosestByPath(FIND_SOURCES_ACTIVE);
             if (source && creep.harvest(source) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(source, { visualizePathStyle: { stroke: "#ffffff" } });
+                creep.moveTo(source, { visualizePathStyle: { stroke: "#0000ff" } });
             }
         }
     };
