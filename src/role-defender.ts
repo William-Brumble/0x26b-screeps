@@ -30,7 +30,7 @@ export class Defender {
           filter: (flag) => flag.color === COLOR_GREEN,
         }) ||
         new RoomPosition(spawn.pos.x + 2, spawn.pos.y + 2, creep.room.name);
-      creep.moveTo(safeLocation, { visualizePathStyle: { stroke: "#00ff00" } });
+      creep.moveTo(safeLocation, { visualizePathStyle: { stroke: "#ff0000" } });
       creep.say("retreat");
     }
   }

@@ -1,4 +1,4 @@
-export type CreepRole = "harvester" | "builder" | "upgrader" | "defender";
+export type CreepRole = "harvester" | "builder" | "upgrader" | "defender" | "repairer";
 
 interface CreepConfig {
   body: BodyPartConstant[];
@@ -13,6 +13,7 @@ export const CREEP_CONFIG: Record<CreepRole, CreepConfig> = {
       harvesting: false,
       building: false,
       upgrading: false,
+      repairing: false,
     },
   },
   builder: {
@@ -22,6 +23,7 @@ export const CREEP_CONFIG: Record<CreepRole, CreepConfig> = {
       harvesting: false,
       building: false,
       upgrading: false,
+      repairing: false,
     },
   },
   upgrader: {
@@ -31,6 +33,7 @@ export const CREEP_CONFIG: Record<CreepRole, CreepConfig> = {
       harvesting: false,
       building: false,
       upgrading: false,
+      repairing: false,
     },
   },
   defender: {
@@ -40,6 +43,17 @@ export const CREEP_CONFIG: Record<CreepRole, CreepConfig> = {
       harvesting: false,
       building: false,
       upgrading: false,
+      repairing: false,
+    },
+  },
+  repairer: {
+    body: [WORK, CARRY, MOVE, MOVE],
+    memory: {
+      role: "repairer",
+      harvesting: false,
+      building: false,
+      upgrading: false,
+      repairing: false,
     },
   },
 };
@@ -50,6 +64,7 @@ export class SpawnerManager {
     this.maintainCreepPopulation("upgrader", 2);
     this.maintainCreepPopulation("harvester", 5);
     this.maintainCreepPopulation("defender", 1);
+    this.maintainCreepPopulation("repairer", 1);
   }
 
   private maintainCreepPopulation(role: CreepRole, desiredCount: number) {
@@ -76,6 +91,7 @@ export class SpawnerManager {
           building: false,
           upgrading: false,
           harvesting: false,
+          repairing: false
         },
       });
     }

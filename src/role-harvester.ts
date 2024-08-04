@@ -17,7 +17,7 @@ export class Harvester {
       // Find the closest active energy source
       const source = creep.pos.findClosestByPath(FIND_SOURCES_ACTIVE);
       if (source && creep.harvest(source) == ERR_NOT_IN_RANGE) {
-        creep.moveTo(source, { visualizePathStyle: { stroke: "#ffffff" } });
+        creep.moveTo(source, { visualizePathStyle: { stroke: "#ffaa00" } });
       }
     }
     // If the creep is in delivery mode
@@ -38,7 +38,7 @@ export class Harvester {
         target &&
         creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE
       ) {
-        creep.moveTo(target, { visualizePathStyle: { stroke: "#ffffff" } });
+        creep.moveTo(target, { visualizePathStyle: { stroke: "#ffaa00" } });
       }
     }
   }
