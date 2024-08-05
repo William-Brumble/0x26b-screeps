@@ -3,11 +3,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreepManager = void 0;
 var CreepManager = /** @class */ (function () {
     function CreepManager(_a) {
-        var builder = _a.builder, harvester = _a.harvester, upgrader = _a.upgrader, defender = _a.defender;
+        var builder = _a.builder, harvester = _a.harvester, upgrader = _a.upgrader, defender = _a.defender, repairer = _a.repairer;
         this.builder = builder;
         this.harvester = harvester;
         this.upgrader = upgrader;
         this.defender = defender;
+        this.repairer = repairer;
     }
     CreepManager.prototype.tick = function (room) {
         for (var name_1 in Game.creeps) {
@@ -23,6 +24,9 @@ var CreepManager = /** @class */ (function () {
             }
             else if (creep.memory.role == "defender") {
                 this.defender.tick(creep);
+            }
+            else if (creep.memory.role == "repairer") {
+                this.repairer.tick(creep);
             }
         }
     };

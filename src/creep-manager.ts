@@ -1,6 +1,7 @@
 import { Builder } from "./role-builder";
 import { Defender } from "./role-defender";
 import { Harvester } from "./role-harvester";
+import { Repairer } from "./role-repairer";
 import { Upgrader } from "./role-upgrader";
 
 interface ICreepManager {
@@ -12,6 +13,7 @@ type IConstructor = {
   harvester: Harvester;
   upgrader: Upgrader;
   defender: Defender;
+  repairer: Repairer;
 };
 
 export class CreepManager implements ICreepManager {
@@ -19,12 +21,20 @@ export class CreepManager implements ICreepManager {
   private harvester: Harvester;
   private upgrader: Upgrader;
   private defender: Defender;
+  private repairer: Repairer;
 
-  constructor({ builder, harvester, upgrader, defender }: IConstructor) {
+  constructor({
+    builder,
+    harvester,
+    upgrader,
+    defender,
+    repairer,
+  }: IConstructor) {
     this.builder = builder;
     this.harvester = harvester;
     this.upgrader = upgrader;
     this.defender = defender;
+    this.repairer = repairer;
   }
 
   tick(room: Room) {
@@ -38,6 +48,8 @@ export class CreepManager implements ICreepManager {
         this.upgrader.tick(creep);
       } else if (creep.memory.role == "defender") {
         this.defender.tick(creep);
+      } else if (creep.memory.role == "repairer") {
+        this.repairer.tick(creep);
       }
     }
   }
